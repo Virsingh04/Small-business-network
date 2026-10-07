@@ -1,0 +1,54 @@
+! Switch0 (2960-24TT) Configuration
+! VLAN Creation
+
+vlan 10
+name Management
+exit
+
+vlan 20
+name Sales
+exit
+
+vlan 30
+name ITAdmin
+exit
+
+vlan 40
+name HR
+exit
+
+! Port assignments
+
+interface range fastEthernet 0/1 - 2
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range fastEthernet 0/3 - 6
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range fastEthernet 0/7 - 8
+switchport mode access
+switchport access vlan 30
+exit
+
+interface fastEthernet 0/9
+switchport mode access
+switchport access vlan 40
+exit
+
+interface fastEthernet 0/10
+switchport mode access
+switchport access vlan 30
+exit
+
+! Trunk port to Router (carries all VLANs)
+
+interface fastEthernet 0/11
+switchport mode trunk
+exit
+
+! Save configuration
+copy running-config startup-config
