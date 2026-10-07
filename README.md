@@ -10,6 +10,8 @@ A small business with 10 employees across 4 departments needs a network where:
 - IP addressing is efficient or a business this size (not wasting large address ranges)
 
 ## Network Design
+<img width="748" height="509" alt="network-diagram" src="https://github.com/user-attachments/assets/476afde6-7add-477c-9d9f-0c93a7ce004f" />
+
 
 | Department | VLAN | Subnet | Devices |
 |---|---|---|---|
@@ -22,7 +24,8 @@ Each /28 subnet provides 14 usable addresses, enough for each department with ro
 
 ## Topology
 
-![Network Diagram](network-diagram.png)
+
+
 
 - **Router0** (Cisco 1941) — router-on-a-stick, one sub-interface per VLAN, acting as the gateway for each department
 - **Switch0** (2960-24TT) — assigns each port to its department's VLAN, trunk port carries all VLAN traffic to the router
@@ -52,8 +55,9 @@ See `switch-config.txt` and `router-config.txt` for the full command sets used t
 
 All 4 VLANs can reach their own gateway and communicate across VLANs through the router.
 
-![Ping Test - PC6 (IT/Admin)](ping-test-pc6.png)
-![Ping Test - PC8 (HR)](ping-test-pc8.png)
+<img width="695" height="729" alt="ping-test-pc6" src="https://github.com/user-attachments/assets/12b37a35-d499-47e4-8a50-d7757918f8fa" />
+<img width="684" height="653" alt="ping-test-pc8" src="https://github.com/user-attachments/assets/55542864-a80e-42cc-a250-4297f360bb5a" />
+
 
 ## A Real Issue I Hit & Fixed
 
